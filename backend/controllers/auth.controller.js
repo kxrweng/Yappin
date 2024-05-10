@@ -31,7 +31,7 @@ export const signup = async (req,res) => {
         })
 
         if(newUser){
-            generateToken(newUser._id, res);
+            generateTokenAndSetCookie(newUser._id, res);
             await newUser.save();
             res.status(201).json({
                 _id : newUser._id,
@@ -76,6 +76,13 @@ export const login = async (req,res) => {
     }
 }
 
-export const logout = (req,res) => {
-    
+export const logout = async (req,res) => {
+    try {
+        res.cookie("jwt","",{maxAge : 0});
+        res.status(200).json({message : "Logged Out Successfully!"})
+
+    } catch (error) {
+        console.log("Error in Logout Controller", error.message)
+        return res.status(500).json({error : "Internal Server Error"})
+    }
 }
