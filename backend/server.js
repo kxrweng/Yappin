@@ -5,10 +5,12 @@ import messageRoutes from './routes/message.routes.js'
 import cookieParser from 'cookie-parser'
 import connectToMongoDB from './db/connectToMongoDB.js';
 import userRoutes from './routes/user.routes.js';
+import cors from 'cors'
 
 const app = express()
 app.use(cookieParser());
 app.use(express.json()); // To parse the incoming requests with JSON payloads
+app.use(cors())
 dotenv.config();
 const PORT = process.env.PORT || 5000;
 

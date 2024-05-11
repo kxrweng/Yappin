@@ -1,3 +1,5 @@
+import React from 'react'
+import { NavLink } from 'react-router-dom'
 const Login = () => {
 	return (
 		<div className='flex flex-col items-center justify-center min-w-96 mx-auto'>
@@ -25,12 +27,12 @@ const Login = () => {
 							className='w-full input input-bordered h-10 bg-[#171717]'
 						/>
 					</div>
-					<a href='#' className='text-sm  hover:underline hover:text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 mt-2 inline-block'>
+					<NavLink to='/signup' className='text-sm  hover:underline hover:text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 mt-2 inline-block'>
 						{"Don't"} have an account?
-					</a>
+					</NavLink>
 
 					<div>
-						<button className='btn btn-block btn-sm mt-2 bg-[#171717] hover:text-white hover:bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600'>Login</button>
+						<button className='btn btn-block btn-sm mt-2 bg-[#171717] hover:text-white hover:bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 border-gray-800'>Login</button>
 					</div>
 				</form>
 			</div>
