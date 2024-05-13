@@ -6,10 +6,12 @@ import cookieParser from 'cookie-parser'
 import connectToMongoDB from './db/connectToMongoDB.js';
 import userRoutes from './routes/user.routes.js';
 import cors from 'cors'
+import { app, server } from './socket/Socket.js'
 
-const app = express()
 app.use(cookieParser());
 app.use(express.json()); // To parse the incoming requests with JSON payloads
+
+
 const corsOptions = {
     origin: 'http://localhost:5173',
     credentials: true,
@@ -29,7 +31,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes)
 app.use("/api/users", userRoutes);
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
     connectToMongoDB();
     console.log(`Server is running on PORT ${PORT}`);
 })
