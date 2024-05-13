@@ -13,6 +13,7 @@ const SignUp = () => {
 		confirmPassword : "",
 		gender : ""
 	})
+	
 	const{loading,signup} = useSignup();
 
 
@@ -85,7 +86,8 @@ const SignUp = () => {
 					</NavLink>
 
 					<div>
-						<button className='btn btn-block btn-sm mt-2 border border-slate-700 bg-[#171717] hover:text-white hover:bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600'>Sign Up</button>
+						<button disabled = {loading} className='btn btn-block btn-sm mt-2 border border-slate-700 bg-[#171717] hover:text-white hover:bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600'>
+						{loading ? <span className = "loading loading-spinner"></span> : "Sign Up"}</button>
 					</div>
 				</form>
 			</div>

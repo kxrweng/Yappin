@@ -10,7 +10,14 @@ import cors from 'cors'
 const app = express()
 app.use(cookieParser());
 app.use(express.json()); // To parse the incoming requests with JSON payloads
-app.use(cors())
+const corsOptions = {
+    origin: 'http://localhost:5173',
+    credentials: true,
+  };
+  
+  app.use(cors(corsOptions)); // Enable CORS with specified options/ Specify the origin and enable credentials
+
+
 dotenv.config();
 const PORT = process.env.PORT || 5000;
 

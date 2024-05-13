@@ -1,6 +1,17 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { NavLink } from 'react-router-dom'
+import useLogin from '../../hooks/useLogin';
+
 const Login = () => {
+	const {loading,login} = useLogin();
+	const [username, setUsername] = useState("");
+	const [password, setPassword] = useState("");
+
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		await login(username, password);
+	}
 	return (
 		<div className='flex flex-col items-center justify-center min-w-96 mx-auto'>
 			<div className='w-full p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0'>
@@ -9,12 +20,12 @@ const Login = () => {
 					<span className='text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600'>  Watsep</span> account.
 				</h1>
 
-				<form>
+				<form onSubmit = {(e) => handleSubmit(e)}>
 					<div>
 						<label className='label p-2'>
 							<span className='text-base label-text'>Username</span>
 						</label>
-						<input type='text' placeholder='Enter username' className='w-full input input-bordered h-10 bg-[#171717]' />
+						<input onChange = {(e) => setUsername(e.target.value)} type='text' value = {username} placeholder='Enter username' className='w-full input input-bordered h-10 bg-[#171717]' />
 					</div>
 
 					<div>
@@ -23,6 +34,8 @@ const Login = () => {
 						</label>
 						<input
 							type='password'
+							onChange = {(e) => setPassword(e.target.value)}
+							value = {password}
 							placeholder='Enter Password'
 							className='w-full input input-bordered h-10 bg-[#171717]'
 						/>
@@ -32,7 +45,9 @@ const Login = () => {
 					</NavLink>
 
 					<div>
-						<button className='btn btn-block btn-sm mt-2 bg-[#171717] hover:text-white hover:bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 border-gray-800'>Login</button>
+						<button className='btn btn-block btn-sm mt-2 bg-[#171717] hover:text-white hover:bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 border-gray-800'>
+						{loading ? <span className = "loading loading-spinner"></span> : "Login"}
+							</button>
 					</div>
 				</form>
 			</div>
