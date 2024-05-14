@@ -19,7 +19,7 @@ app.use(express.json()); // To parse the incoming requests with JSON payloads
 
 
 const corsOptions = {
-    origin: 'http://localhost:5173',
+    origin: 'https://yappin-c46d.onrender.com/',
     credentials: true,
   };
   
