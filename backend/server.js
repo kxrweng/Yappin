@@ -19,7 +19,7 @@ app.use(express.json()); // To parse the incoming requests with JSON payloads
 
 
 const corsOptions = {
-    origin: 'https://yappin-c46d.onrender.com',
+    origin: 'http://yappin-c46d.onrender.com',
     credentials: true,
   };
   
