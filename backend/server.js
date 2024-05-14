@@ -27,9 +27,7 @@ const corsOptions = {
 dotenv.config();
 const PORT = process.env.PORT || 5000;
 
-app.get("/", (req,res) => {
-    res.json({message : "Hello World"})
-})
+
 
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes)
