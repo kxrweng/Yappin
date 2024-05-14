@@ -30,7 +30,7 @@ const SignUp = () => {
 		<div className='flex flex-col items-center justify-center min-w-96 mx-auto'>
 			<div className='w-full p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0'>
 				<h1 className='text-3xl font-semibold text-center text-gray-300'>
-					Sign Up for a <span className='text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 '> Watsep</span> account.
+					Sign Up for a <span className='text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 '> Yappin</span> account.
 				</h1>
 
 				<form onSubmit = {(e) => handleSubmit(e)}>
