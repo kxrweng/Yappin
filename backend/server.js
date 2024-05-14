@@ -9,6 +9,8 @@ import cors from 'cors'
 import { app, server } from './socket/Socket.js'
 import path from 'path'
 
+const PORT = process.env.PORT || 5000;
+
 const __dirname = path.resolve();
 console.log(__dirname);
 
@@ -25,7 +27,6 @@ const corsOptions = {
 
 
 dotenv.config();
-const PORT = process.env.PORT || 5000;
 
 
 
@@ -36,7 +37,7 @@ app.use("/api/users", userRoutes);
 app.use(express.static(path.join(__dirname, '/frontend/dist')))
 
 app.get("*", (req,res) => {
-    return res.sendFile(path.join(__dirname, "frontend","dist", "index.html"))
+     res.sendFile(path.join(__dirname, "frontend","dist", "index.html"))
 })
 
 server.listen(PORT, () => {
